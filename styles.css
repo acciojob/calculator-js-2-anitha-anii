@@ -1,5 +1,5 @@
 /*  your css code here. If applicable */
-  .calulater {
+  .calculator{
   display: flex;
 	  flex-direction:column;
 	  gap:10px;
