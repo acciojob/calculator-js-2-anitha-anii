@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", function() {
   const display = document.getElementById("display");
   const buttons = document.querySelectorAll("button");
@@ -14,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
         display.value = currentDisplay.slice(0, -1);
       } else if (value === "=") {
         try {
-          display.value = eval(currentDisplay);
+          display.value = evaluateExpression(currentDisplay);
         } catch (error) {
           display.value = "Error";
         }
@@ -23,7 +22,16 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   });
+
+  function evaluateExpression(expression) {
+    // Handle open and close brackets
+    expression = expression.replace(/op/g, "(").replace(/cl/g, ")");
+
+    // Evaluate the expression
+    return eval(expression);
+  }
 });
+
 
 
 
